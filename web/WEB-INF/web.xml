@@ -4,9 +4,41 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>pe.edu.ulima.controllers.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginFacebookServlet</servlet-name>
+        <servlet-class>pe.edu.ulima.controllers.LoginFacebookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginFacebookCallbackServlet</servlet-name>
+        <servlet-class>pe.edu.ulima.controllers.LoginFacebookCallbackServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginTwitterServlet</servlet-name>
+        <servlet-class>pe.edu.ulima.controllers.LoginTwitterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginTwitterCallbackServlet</servlet-name>
+        <servlet-class>pe.edu.ulima.controllers.LoginTwitterCallbackServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginFacebookServlet</servlet-name>
+        <url-pattern>/login-facebook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginFacebookCallbackServlet</servlet-name>
+        <url-pattern>/login-facebook-callback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginTwitterServlet</servlet-name>
+        <url-pattern>/login-twitter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginTwitterCallbackServlet</servlet-name>
+        <url-pattern>/login-twitter-callback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -14,4 +46,3 @@
         </session-timeout>
     </session-config>
 </web-app>
-

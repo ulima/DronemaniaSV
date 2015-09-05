@@ -12,8 +12,28 @@ var onLogin = function(evt){
     );
 };
 
+var onLoginFacebook = function(evt){
+    $.post('login-facebook', 
+        function(data){
+            document.location.href = data.urlCallback;
+        }
+    );
+};
+
+var onLoginTwitter = function(evt){
+    $.post('login-twitter', 
+        function(data){
+            document.location.href = data.urlCallback;
+        }
+    );
+};
+
 window.addEventListener('load', function(){
     document.querySelector('#butLogin').addEventListener('click', onLogin);
+    document.querySelector('#butLoginFacebook').addEventListener(
+            'click', onLoginFacebook);
+    document.querySelector('#butLoginTwitter').addEventListener(
+            'click', onLoginTwitter);
 });
 
 

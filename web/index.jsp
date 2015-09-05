@@ -17,6 +17,8 @@
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
               <button id="butLogin" class="btn btn-lg btn-primary btn-block" type="button">Ingresar</button>
+              <button id="butLoginFacebook" class="btn btn-lg btn-primary btn-block" type="button">Login Facebook</button>
+              <button id="butLoginTwitter" class="btn btn-lg btn-primary btn-block" type="button">Login Twitter</button>
             </form>
 
         </div>

@@ -20,6 +20,10 @@
         <servlet-name>LoginTwitterCallbackServlet</servlet-name>
         <servlet-class>pe.edu.ulima.controllers.LoginTwitterCallbackServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginSocialServlet</servlet-name>
+        <servlet-class>pe.edu.ulima.controllers.LoginSocialServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>LoginTwitterCallbackServlet</servlet-name>
         <url-pattern>/login-twitter-callback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginSocialServlet</servlet-name>
+        <url-pattern>/login-social</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

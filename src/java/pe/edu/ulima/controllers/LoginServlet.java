@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import pe.edu.ulima.controllers.dto.LoginRequest;
 import pe.edu.ulima.controllers.dto.LoginResponse;
 import pe.edu.ulima.model.GestorUsuarios;
-import pe.edu.ulima.utilitarios.Utiles;
 
 /*
  * Input:

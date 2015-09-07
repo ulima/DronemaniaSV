@@ -9,14 +9,16 @@ import twitter4j.auth.RequestToken;
 public class LoginTwitterAdapter implements LoginAdapter{
 
     @Override
-    public String login(String key, String secret, String callback, HttpServletRequest request) throws Exception{
+    public String login(HttpServletRequest request) throws Exception{
         Twitter twitter = new TwitterFactory().getInstance();
         request.getSession().setAttribute("twitter", twitter);
-        twitter.setOAuthConsumer(key, secret);
+        twitter.setOAuthConsumer("kqpGWWje3zCidztrqnL9UZIbP",
+                "QFpfF9qZN6jEl8ZwyW8vgzc5iSbv4dOIzRVnEIn7nbFu4nAh6H");
         
         StringBuffer callbackURL = request.getRequestURL();
         int index = callbackURL.lastIndexOf("/");
-        callbackURL.replace(index, callbackURL.length(), "").append(callback);
+        callbackURL.replace(index, callbackURL.length(), "").append(
+                "/login-twitter-callback");
 
         RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
         request.getSession().setAttribute("requestToken", requestToken);

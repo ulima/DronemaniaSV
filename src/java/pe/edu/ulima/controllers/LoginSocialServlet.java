@@ -8,32 +8,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pe.edu.ulima.controllers.adapters.LoginAdapter;
-import pe.edu.ulima.controllers.adapters.LoginFacebookAdapter;
 import pe.edu.ulima.controllers.dto.LoginFacebookResponse;
+import pe.edu.ulima.controllers.dto.LoginSocialResponse;
+import pe.edu.ulima.controllers.factories.LoginFactory;
 
-public class LoginFacebookServlet extends HttpServlet {
+public class LoginSocialServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        LoginFactory loginFactory = new LoginFactory();
         
-        LoginAdapter loginFacebookAdapter = new LoginFacebookAdapter();
-        LoginFacebookResponse loginFacebookResponse ;
+        LoginAdapter loginAdapter = loginFactory.obtenerLoginAdapter();
+        LoginSocialResponse loginSocialResponse ;
         try {
-            String urlCallback = loginFacebookAdapter.login(request);
-            loginFacebookResponse = new LoginFacebookResponse(
+            String urlCallback = loginAdapter.login(request);
+            loginSocialResponse = new LoginSocialResponse(
                         "OK", 
                         "", 
                         urlCallback
                 );
         } catch (Exception ex) {
-            loginFacebookResponse = new LoginFacebookResponse(
+            loginSocialResponse = new LoginSocialResponse(
                         "Exception", 
                         ex.getMessage(), 
                         null
@@ -41,7 +38,7 @@ public class LoginFacebookServlet extends HttpServlet {
         }
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        out.print(new Gson().toJson(loginFacebookResponse));
+        out.print(new Gson().toJson(loginSocialResponse));
     }
 
 }

@@ -27,9 +27,6 @@ public class LoginTwitterServlet extends HttpServlet {
         try {
             LoginAdapter loginAdapter = new LoginTwitterAdapter();
             String urlCallback = loginAdapter.login(
-                    "kqpGWWje3zCidztrqnL9UZIbP",
-                    "QFpfF9qZN6jEl8ZwyW8vgzc5iSbv4dOIzRVnEIn7nbFu4nAh6H",
-                    "/login-twitter-callback",
                     request
             );
             

@@ -12,6 +12,14 @@ var onLogin = function(evt){
     );
 };
 
+var onLoginSocial = function(evt){
+    $.post('login-social', 
+        function(data){
+            document.location.href = data.urlCallback;
+        }
+    );
+}
+
 var onLoginFacebook = function(evt){
     $.post('login-facebook', 
         function(data){
@@ -31,9 +39,9 @@ var onLoginTwitter = function(evt){
 window.addEventListener('load', function(){
     document.querySelector('#butLogin').addEventListener('click', onLogin);
     document.querySelector('#butLoginFacebook').addEventListener(
-            'click', onLoginFacebook);
+            'click', onLoginSocial);
     document.querySelector('#butLoginTwitter').addEventListener(
-            'click', onLoginTwitter);
+            'click', onLoginSocial);
 });
 
 

@@ -7,9 +7,11 @@
 package pe.edu.ulima.utilitarios;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Properties;
 
 /**
  *
@@ -33,5 +35,32 @@ public class Utiles {
             }
         }
         return sb.toString();
+    }
+    
+    public static String getValueFromProperty(String property) {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        Properties prop = new Properties();
+        InputStream input = null;
+        String res = "";
+        try {
+            // load a properties file
+            prop.load(classLoader.getResourceAsStream("pe/edu/ulima/utilitarios/config.properties"));
+
+            res = prop.getProperty(property);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return res;
+    }
+    public static void main(String[] args){
+        System.out.println(Utiles.getValueFromProperty("login"));
     }
 }

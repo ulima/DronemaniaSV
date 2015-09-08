@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pe.edu.ulima.controllers.adapters.LoginAdapter;
-import pe.edu.ulima.controllers.dto.LoginFacebookResponse;
 import pe.edu.ulima.controllers.dto.LoginSocialResponse;
 import pe.edu.ulima.controllers.factories.LoginFactory;
 
@@ -18,7 +17,7 @@ public class LoginSocialServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        LoginFactory loginFactory = new LoginFactory();
+        LoginFactory loginFactory = LoginFactory.getInstance();
         
         LoginAdapter loginAdapter = loginFactory.obtenerLoginAdapter();
         LoginSocialResponse loginSocialResponse ;

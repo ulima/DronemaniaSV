@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         LoginRequest loginRequest = 
                 new Gson().fromJson(reader, LoginRequest.class);
         
-        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        GestorUsuarios gestorUsuarios = GestorUsuarios.getInstance();
         boolean res = gestorUsuarios.login(
                 loginRequest.getUsuario(), 
                 loginRequest.getPassword()

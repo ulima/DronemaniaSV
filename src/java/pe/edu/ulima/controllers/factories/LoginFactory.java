@@ -6,6 +6,17 @@ import pe.edu.ulima.controllers.adapters.LoginTwitterAdapter;
 import pe.edu.ulima.utilitarios.Utiles;
 
 public class LoginFactory {
+    private static LoginFactory singleton = null;
+    
+    public static LoginFactory getInstance(){
+        if (singleton == null){
+            singleton = new LoginFactory();
+        }
+        return singleton;
+    }
+    
+    private LoginFactory(){}
+    
     public LoginAdapter obtenerLoginAdapter(){
         String tipoLogin = Utiles.getValueFromProperty("login");
         

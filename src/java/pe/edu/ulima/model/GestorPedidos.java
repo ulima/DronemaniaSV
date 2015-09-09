@@ -1,9 +1,10 @@
 package pe.edu.ulima.model;
 
+import pe.edu.ulima.model.GestorLog.OnLogWritten;
 import pe.edu.ulima.model.beans.DetallePedido;
 import pe.edu.ulima.model.beans.Pedido;
 
-public class GestorPedidos {
+public class GestorPedidos implements OnLogWritten{
     private static GestorPedidos singleton = null;
     
     public static GestorPedidos getInstance(){
@@ -25,5 +26,13 @@ public class GestorPedidos {
             System.out.println("IdDrone: " + detalle.getDrone().getId());
             System.out.println("Cantidad: " + detalle.getCantidad());
         }
+        
+        GestorLog.getInstance().addObserver(this);
+        GestorLog.getInstance().escribirLog("Mensaje", "Se grabo un pedido");
+    }
+
+    @Override
+    public void onLogWritten() {
+        System.out.println("Termino de escribirse en el log");
     }
 }

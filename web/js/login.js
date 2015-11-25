@@ -13,12 +13,13 @@ var onLogin = function(evt){
 };
 
 var onLoginSocial = function(evt){
-    $.post('login-social', 
+    var network = evt.target.id === 'butLoginFacebook' ? "facebook" : "twitter";
+    $.post('login-social?network=' + network, 
         function(data){
             document.location.href = data.urlCallback;
         }
     );
-}
+};
 
 var onLoginFacebook = function(evt){
     $.post('login-facebook', 

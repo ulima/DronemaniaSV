@@ -19,7 +19,10 @@ public class LoginSocialServlet extends HttpServlet {
             throws ServletException, IOException {
         LoginFactory loginFactory = LoginFactory.getInstance();
         
-        LoginAdapter loginAdapter = loginFactory.obtenerLoginAdapter();
+        String tipoLogin = request.getParameter("network") != null 
+                ? request.getParameter("network") : "facebook";
+        
+        LoginAdapter loginAdapter = loginFactory.obtenerLoginAdapter(tipoLogin);
         LoginSocialResponse loginSocialResponse ;
         try {
             String urlCallback = loginAdapter.login(request);

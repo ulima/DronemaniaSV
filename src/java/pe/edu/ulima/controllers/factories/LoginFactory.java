@@ -17,8 +17,8 @@ public class LoginFactory {
     
     private LoginFactory(){}
     
-    public LoginAdapter obtenerLoginAdapter(){
-        String tipoLogin = Utiles.getValueFromProperty("login");
+    public LoginAdapter obtenerLoginAdapter(String tipoLogin){
+        //String tipoLogin = Utiles.getValueFromProperty("login");
         
         if (tipoLogin.equals("facebook")){
             return new LoginFacebookAdapter();
